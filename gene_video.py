@@ -215,10 +215,10 @@ class GenerateVideo(object):
                 print(f"[WARN]“{str(old_cache_file)}”缓存有问题，重新获取!")
 
         if lang is None:
-            if has_chinese(content):
-                lang = 'zh'
-            elif has_japanese(content):
+            if has_japanese(content):
                 lang = 'ja'
+            elif has_chinese(content):
+                lang = 'zh'
             else:
                 lang = 'en'
 
