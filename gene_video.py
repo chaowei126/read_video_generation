@@ -68,7 +68,7 @@ def has_chinese(content: str):
     return bool(chinese_pattern.search(content))
 
 def has_japanese(content: str):
-    japanese_pattern = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]')
+    japanese_pattern = re.compile(r'[\u3040-\u309F\u30A0-\u30FF]')
     return bool(japanese_pattern.search(content))
 
 
