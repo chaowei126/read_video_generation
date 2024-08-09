@@ -62,13 +62,13 @@ def sum_list_total_len(obj_list: list):
 
     return total_len
 
-
 def has_chinese(content: str):
-    for char in content:
-        if '\u4e00' <= char <= '\u9fff':
-            return True
+    chinese_pattern = re.compile(r'[\u4E00-\u9FAF]')
+    return bool(chinese_pattern.search(content))
 
-    return False
+def has_japanese(content: str):
+    japanese_pattern = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]')
+    return bool(japanese_pattern.search(content))
 
 
 def md5(content: str):
@@ -216,6 +216,8 @@ class GenerateVideo(object):
         if lang is None:
             if has_chinese(content):
                 lang = 'zh'
+            elif has_japanese(content):
+                lang = 'ja'
             else:
                 lang = 'en'
 
