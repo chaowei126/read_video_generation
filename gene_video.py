@@ -443,7 +443,8 @@ class GenerateVideo(object):
                     self.data_list) - 1:
 
                 offset = max(self.args.from_line - 1, 0)  # 如果不是从第1行开始的，那么标题名字也跟着往后偏移
-                title = f'{start_index + offset}-{index + offset}'
+                #title = f'{start_index + offset}-{index + offset}'
+                title = self.filename
                 merged_audio_file = self.output_dir / f'{title}.wav'
                 merged_audio = sum(audio_segments)
                 merged_audio += self.args.add_volume  # 加减音量
